@@ -8,6 +8,7 @@ import (
 	"strings"
 	"strconv"
 	"slices"
+	"utils"
 )
 
 func getWinningNumbers(line string) []int {
@@ -36,18 +37,13 @@ func getGotNumbers(line string) []int {
 }
 
 func sol1() int {
-	f, err := os.Open("input.txt")
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
+	lineChan := make(chan string)
 
-	scanner := bufio.NewScanner(f)
+	go utils.ReadInputLines("input.txt", lineChan)
 
 	sum := 0
-	
-	for scanner.Scan() {
-		line := scanner.Text()
+
+	for line := range lineChan {
 		winningNumbers := getWinningNumbers(line)
 		gotNumbers := getGotNumbers(line)
 		currCardPoints := 0
@@ -62,6 +58,7 @@ func sol1() int {
 		}
 		sum += currCardPoints
 	}
+
 	return sum
 }
 
@@ -112,5 +109,5 @@ func sol2() int {
 }
 
 func main() {
-	fmt.Println(sol2())
+	fmt.Println(sol1())
 }
