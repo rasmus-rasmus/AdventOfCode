@@ -79,5 +79,5 @@ func sol2() int {
 }
 
 func main() {
-	fmt.Println(sol2())
+	fmt.Println(sol1())
 }
