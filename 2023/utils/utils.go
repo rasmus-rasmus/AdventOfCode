@@ -35,3 +35,12 @@ func GetNumeralsFromString(s string) []int {
 	}
 	return numeralsOut
 }
+
+func GetIndexOfValue[T comparable](anySlice []T, val T) (bool, int) {
+	for i, v := range anySlice {
+		if v == val {
+			return true, i
+		}
+	}
+	return false, -1
+}
