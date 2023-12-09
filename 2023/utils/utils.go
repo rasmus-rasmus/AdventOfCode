@@ -44,3 +44,15 @@ func GetIndexOfValue[T comparable](anySlice []T, val T) (bool, int) {
 	}
 	return false, -1
 }
+
+type Summable interface {
+	int | float64
+}
+
+func Sum[T Summable](seq []T) T {
+	var sum T
+	for _, v := range seq {
+		sum += v
+	}
+	return sum
+}
