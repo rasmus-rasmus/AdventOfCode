@@ -38,16 +38,10 @@ func extrapolateNextSeqValue(seqs [][]int) int {
 }
 
 func extrapolatePreviousSeqValue(seqs [][]int) int {
-	fmt.Println("Extrapolating for sequence:")
-	for _, seq := range seqs {
-		fmt.Println(seq)
-	}
 	prevVal := 0
-	fmt.Println(prevVal)
 	for i := len(seqs)-2; i >= 0; i-- {
 		currSeq := seqs[i]
 		prevVal = currSeq[0] - prevVal
-		fmt.Println(prevVal)
 	}
 	return prevVal
 }
