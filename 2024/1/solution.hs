@@ -7,7 +7,7 @@ main = do
         handle <- openFile "input.txt" ReadMode
         contents <- hGetContents handle
         let singlewords = words contents
-            list = f singlewords
+            list = toInt singlewords
         let left = [list !! i | i <- [0..((length list) - 1)], even i]
         let right = [list !! i | i <- [0..((length list) - 1)], odd i]
 
@@ -20,5 +20,5 @@ main = do
         hClose handle
 
 
-f :: [String] -> [Int]
-f = map read
+toInt :: [String] -> [Int]
+toInt = map read
