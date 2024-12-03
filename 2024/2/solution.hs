@@ -9,7 +9,7 @@ isSafe x y = x /= y && abs (x-y) < 4
 isSafeList :: [Int] -> Bool
 isSafeList (x:[]) = True
 isSafeList (x:y:[]) = isSafe x y
-isSafeList (x:rest) = isSafe x rest0 && ((head rest) - x) * (rest1 - rest0) > 0 && isSafeList rest
+isSafeList (x:rest) = isSafe x rest0 && (rest0 - x) * (rest1 - rest0) > 0 && isSafeList rest
                 where rest0 = head rest
                       rest1 = rest !! 1
 

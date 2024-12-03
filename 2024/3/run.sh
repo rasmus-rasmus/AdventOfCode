@@ -1,0 +1,1 @@
+ghc -package regex-compat solution.hs -o solution && ./solution
