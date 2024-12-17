@@ -107,7 +107,3 @@ main = do
         print $ getNumPeriodicObstacles map
         
         hClose handle
-
-
-toInt :: [String] -> [Int]
-toInt = map read
